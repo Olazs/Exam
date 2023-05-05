@@ -8,9 +8,13 @@ class Event(models.Model):
     price = models.IntegerField(default=0)
     date=models.DateField(auto_now=True)
 
+class GasStation(models.Model):
+    name= models.CharField(max_length=50)
+
 class Refuel(Event):
     quantity=models.IntegerField()
-    gas_station=models.CharField(max_length=50, null=True, blank=True)
+    gas_station=models.ForeignKey(GasStation, null=True, on_delete=models.SET_NULL)
+    #gas_station=models.CharField(max_length=50, null=True, blank=True)
 
 
 
