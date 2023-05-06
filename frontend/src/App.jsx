@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react'
 import "./App.css"
-import GetApiDatas from "./Components/ApiDatas"
+import ApiDatas from "./Components/ApiDatas"
 
 
 
@@ -23,7 +23,7 @@ const App = () => {
       </div>
       </form>
       <div>
-        <GetApiDatas/>
+        <ApiDatas/>
       </div>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
