@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    position: absolute;
+    top: 10px;
+    left: 44%;
+}
