@@ -1,9 +1,8 @@
-import React from 'react'
 import {useState, useEffect, useContext} from 'react'
-//import "./styles.css"
 import "./App.css"
+import GetApiDatas from "./Components/ApiDatas"
 
-//api/GetAllEvents/
+
 
 
 const App = () => {
@@ -23,35 +22,17 @@ const App = () => {
         <input type="button" value="Add" id='AddButton'/>
       </div>
       </form>
+      <div>
+        <GetApiDatas/>
+      </div>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     </div>
   )
 }
 
-const GetApiDatas = (props) => {
-  const [apiResponse, setApiResponse] = useState([])
 
-  useEffect(() => {
-    fetch("api/GetAllEvents/")
-    .then(response => response.json())
-    .then(date => {
-      setApiResponse(data)
-    })
-  }, [])
-
-  return (
-    <div id='ResponseDiv'>
-      <table>
-        <tbody>
-          {apiResponse.map((value, idx) => <TableRow key={idx} rowData={value}/>)}
-        </tbody>
-      </table>
-    </div>
-  )
-}
-
-const TableRow = (props) => {
-  let {milage, date, price, description} = props.rowData
-}
 
 
 export default App
