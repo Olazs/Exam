@@ -1,48 +1,62 @@
-import {useState, useEffect, useContext} from 'react'
+import React from "react";
+import { useEffect, useState } from "react";
 
 
+function GetData() {
+  const [data, setData] = useState([]);
 
-function GetApiDatas() {
+    useEffect(() => {
+      fetchData();
+    }, []);
+  const fetchData = () => {
+    fetch("http://localhost:8000/api/GetAllEvents/")
+      .then(response => response.json())
+      .then(actualData => setData(actualData))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  
+  const Add = () => {
+    
+  }
 
-  const [valami, setValami] = useState([])
-  const [refresh, setRefresh] = useState([false])
 
-  useEffect(()=>{
-
-    setRefresh(true)
-
-    try {
-      fetch("http://localhost:8000/api/GetAllEvents/", {
-      method: "GET",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    }).then(response => {
-      console.log(response.body);
-       console.log(response);
-      response.json();
-    }).then(data => {
-       //console.log(data);
-      setValami(data);
+  const Remove = () => {
+    var indexToBeRemoved = 6;
+    fetch("http://localhost:8000/api/DeleteEvent/" + indexToBeRemoved, {
+      method: 'DELETE'
     })
-    } catch (error) {
-      console.log("KÉPZELD SZAR:\t", error);
-    }
-
-  },[refresh])
-
-console.log(valami);
-
+    window.location.reload(false)
+  }
+  
+  
   return (
-    <div>
-      {/* {valami.map((value, idx) => {
-        <p>
-          {value.description}
-        </p>
-      })} */}
+    <div className="GetData">
+      <table className="table table-striped">
+      <tbody className="Table-list">
+        <tr>
+          <th>Date</th>
+          <th>Mileage</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+        {data?.map((item, idx) => (
+          <tr key={idx}>
+            <td>{item.date}</td>
+            <td>{item.mileage}</td>
+            <td>{item.description}</td>
+            <td>{item.price}</td>
+            <td>
+              <button className="btn btn-danger" id="RemoveButton" onClick={Remove}>Remove</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+      </table>
     </div>
   )
-}
 
-export default GetApiDatas
+}
+export default GetData;
