@@ -20,10 +20,10 @@ function GetApiDatas() {
       },
     }).then(response => {
       console.log(response.body);
-      // console.log(response);
+       console.log(response);
       response.json();
     }).then(data => {
-      // console.log(data);
+       //console.log(data);
       setValami(data);
     })
     } catch (error) {
