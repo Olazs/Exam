@@ -10,8 +10,56 @@ body{
     align-items: center;
     justify-content: center;
 }
+  
+  /* .new-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  } */
+
+    
+  #AddButton {
+    width: 100px;
+    background: hsl(200, 100%, 50%, 0.1);
+    border: 1px solid hsl(200, 100%, 50%);
+    color: hsl(200, 100%, 50%);
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  #AddButton:hover,
+  #AddButton:focus-visible {
+    background: hsl(200, 100%, 50%, 0.2);
+  }
+  
+  .btn.btn-danger {
+    background: hsl(0, 100%, 40%, 0.1);
+    border: 1px solid hsl(0, 100%, 40%);
+    color: hsl(0, 100%, 40%);
+  }
+  
+  .btn.btn-danger:hover,
+  .btn.btn-danger:focus-visible {
+    background: hsl(0, 100%, 40%, 0.2);
+  }
+
 h1{
     position: absolute;
     top: 10px;
     left: 44%;
+}
+
+input[type="text"], input[type="number"], input[type="date"]{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10%;
 }
