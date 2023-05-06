@@ -18,13 +18,14 @@ function GetData() {
   };
   
   const Add = () => {
-    
+
   }
 
 
   const Remove = () => {
-    var indexToBeRemoved = 6;
-    fetch("http://localhost:8000/api/DeleteEvent/" + indexToBeRemoved, {
+    var index = RemoveButton.value*1
+    console.log(index)
+    fetch("http://localhost:8000/api/DeleteEvent/" + index, {
       method: 'DELETE'
     })
     window.location.reload(false)
@@ -49,7 +50,7 @@ function GetData() {
             <td>{item.description}</td>
             <td>{item.price}</td>
             <td>
-              <button className="btn btn-danger" id="RemoveButton" onClick={Remove}>Remove</button>
+              <button className="btn btn-danger" id="RemoveButton" value={item.id} onClick={Remove}>Remove</button>
             </td>
           </tr>
         ))}
