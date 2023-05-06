@@ -5,3 +5,7 @@ class RefuelSerializer(serializers.ModelSerializer):
     class Meta: 
         model= Refuel
         fields ='__all__'
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Event
+        fields='__all__'
