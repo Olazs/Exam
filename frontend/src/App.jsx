@@ -2,32 +2,32 @@ import {useState, useEffect, useContext} from 'react'
 import "./App.css"
 import ApiDatas from "./Components/ApiDatas"
 
+const Add = (e) => {
+  e.preventDefault()
+  const formData = new FormData(document.getElementById("form"))
+
+  fetch("http://localhost:8000/api/CreateEvent/", {
+    method: 'POST',
+    body: JSON.stringify(formData),
+    headers:{
+      "Application": "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
 const App = () => {
   
-  const Add = (e) => {
-    //console.log(document.getElementById("Date").value)
-    fetch("http://localhost:8000/api/CreateEvent/", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-        `{
-          {
-            "date": ${document.getElementById("Date").value},
-            "milage": ${documnet.getElementById("Milage").value},
-            "description": ${document.getElementById("Description").value},
-            "price": ${document.getElementById("Price").value}
-          }
-        }`
-      )
-    })
-  }
 
   return (
     <div className='App'>
-     <form className="new-item-form">
+     <form className="new-item-form" onSubmit={Add} id='form'>
       <h1 htmlFor="">New Log</h1>
       <div className="form-row">
         
@@ -56,3 +56,6 @@ const App = () => {
 
 
 export default App
+
+
+
