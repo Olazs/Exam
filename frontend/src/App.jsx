@@ -9,9 +9,9 @@ const Add = (e) => {
   fetch("http://localhost:8000/api/CreateEvent/", {
     method: 'POST',
     body: JSON.stringify(formData),
-    headers:{
+    headers: {
       "Application": "application/json",
-      "Content-Type": "application/json"
+      //"Content-Type": "application/json"
     }
   })
   .then(data => {

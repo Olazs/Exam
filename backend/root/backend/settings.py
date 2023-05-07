@@ -56,7 +56,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS= True
-
+CORS_ALLOW_HEADERS = [
+    "Example-Header",
+    "Application" "application/json",
+    "Content-Type" "application/json",
+    "newHttpHeaders",
+    "Applicationapplication/json",
+]
 
 
 ROOT_URLCONF = 'backend.urls'
