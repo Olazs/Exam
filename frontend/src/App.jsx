@@ -2,6 +2,7 @@ import {useState, useEffect, useContext} from 'react'
 import "./App.css"
 import ApiDatas from "./Components/ApiDatas"
 
+
 const App = () => {
   const [data, setData] = useState([]);
 
@@ -68,7 +69,7 @@ const App = () => {
   return (
     <div className='App'>
      <form className="new-item-form" onSubmit={Add} id='form'>
-      <h1 htmlFor="">New Log</h1>
+      <h1 htmlFor="">Log list app</h1>
       <div className="form-row">
         <input type="number" name='Mileage' id='Mileage' onChange={(event)=>{ setMileage(event.target.value*1) }} placeholder='Mileage' /> 
         <input type="text" name='Description' id="Description" onChange={(event)=>{ setDescription(event.target.value) }} placeholder='Description'/>
@@ -77,7 +78,7 @@ const App = () => {
         <input type="number" name="Quantity" id="Quantity" onChange={(event)=>{ setQuantity(event.target.value*1) }} placeholder='Quantity'/>
         <input type="text" name="GasStationType" id='GasStationType' onChange={(event)=>{ setGasStationType(event.target.value) }} placeholder='GasStationType'/>
         <br />
-        <button id='AddButton' onClick={Add}>Add</button>
+        <button id='AddButton' className='btn' onClick={Add}>Add</button>
       </div>
       </form>
       <div>
