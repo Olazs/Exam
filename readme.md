@@ -4,13 +4,13 @@ Elsőnek szükséged lesz a két szerverre. A két szervert a két főmappából
 Powershell használata ajánlott. 
 
 Frontend aktiválása: 
-cd Frontend
-npm run dev
+    cd Frontend
+    npm run dev
 
 Backend aktiválása: 
-cd backend
-\Scripts\Activate.ps1
-cd root
-python manage.py runserver
+    cd backend
+    \Scripts\Activate.ps1
+    cd root
+    python manage.py runserver
 
 Kész is! A Localhost:5173 alatt működött nekem. A backend 127.0.0.1-en a 8000 port alatt futtattam.
