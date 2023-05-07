@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import App from ".././App"
 
 function GetData() {
   const [data, setData] = useState([]);
@@ -16,10 +16,6 @@ function GetData() {
         console.log(err.message);
       });
   };
-  
-  const Add = () => {
-
-  }
 
 
   const Remove = () => {

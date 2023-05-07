@@ -2,10 +2,29 @@ import {useState, useEffect, useContext} from 'react'
 import "./App.css"
 import ApiDatas from "./Components/ApiDatas"
 
-
-
-
 const App = () => {
+  
+  const Add = (e) => {
+    //console.log(document.getElementById("Date").value)
+    fetch("http://localhost:8000/api/CreateEvent/", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        `{
+          {
+            "date": ${document.getElementById("Date").value},
+            "milage": ${documnet.getElementById("Milage").value},
+            "description": ${document.getElementById("Description").value},
+            "price": ${document.getElementById("Price").value}
+          }
+        }`
+      )
+    })
+  }
+
   return (
     <div className='App'>
      <form className="new-item-form">
@@ -19,7 +38,7 @@ const App = () => {
         <input type="number" name="Quantity" id="Quantity" placeholder='Quantity'/>
         <input type="text" name="GasStationType" id='GasStationType' placeholder='GasStationType'/>
         <br />
-        <input type="button" value="Add" id='AddButton'/>
+        <button id='AddButton' onClick={Add}>Add</button>
       </div>
       </form>
       <div>
@@ -30,6 +49,7 @@ const App = () => {
 
     </div>
   )
+
 }
 
 
