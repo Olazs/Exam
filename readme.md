@@ -1,5 +1,7 @@
-2023 Webfejlesztő vizsgaremek
+# 2023 Webfejlesztő vizsgaremek
+
 Hogyan futtathatod a projektet? 
+
 Elsőnek szükséged lesz a két szerverre. A két szervert a két főmappából indíthatod. Szükséged lesz azonban Node.js-re a számítógépen, valamint Pythonra, ami megadja a virtuális környezetet. 
 Powershell használata ajánlott. 
 
