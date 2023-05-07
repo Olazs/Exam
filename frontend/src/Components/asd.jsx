@@ -128,5 +128,5 @@ handleSubmit = async (event) => {
 
     var form_data = new FormData(document.getElementById("my-awesome-dropzone"));
 
-
+  }
 export default GetApiDatas

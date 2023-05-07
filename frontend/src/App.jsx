@@ -10,8 +10,10 @@ const Add = (e) => {
     method: 'POST',
     body: JSON.stringify(formData),
     headers: {
-      "Application": "application/json",
-      "Content-Type": "application/json; charset=UTF-8"
+
+      "access-control-allow-origin": "*",
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Methods': '*',
     }
   })
   .then(data => {
@@ -23,8 +25,6 @@ const Add = (e) => {
 }
 
 const App = () => {
-  
-
   return (
     <div className='App'>
      <form className="new-item-form" onSubmit={Add} id='form'>
