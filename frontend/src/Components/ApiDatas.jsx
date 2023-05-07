@@ -1,33 +1,27 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import App from ".././App"
 
-function GetData() {
-  const [data, setData] = useState([]);
+function GetData({data, fetchData}) {
 
     useEffect(() => {
       fetchData();
     }, []);
-  const fetchData = () => {
-    fetch("http://localhost:8000/api/GetAllEvents/")
-      .then(response => response.json())
-      .then(actualData => setData(actualData))
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
 
-
-  const Remove = () => {
-    var index = RemoveButton.value*1
-    console.log(index)
-    fetch("http://localhost:8000/api/DeleteEvent/" + index, {
-      method: 'DELETE'
+    
+  const Remove = (id) => {
+    console.log(id)
+    fetch("http://localhost:8000/api/DeleteEvent/" + id, {
+      method: 'DELETE',
+      headers: {
+        "access-control-allow-origin": "*",
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Methods': '*',
+      }
+    }).then(()=>{
+      fetchData()
     })
-    window.location.reload(false)
   }
-  
-  
+    
   return (
     <div className="GetData">
       <table className="table table-striped">
@@ -46,7 +40,7 @@ function GetData() {
             <td>{item.description}</td>
             <td>{item.price}</td>
             <td>
-              <button className="btn btn-danger" id="RemoveButton" value={item.id} onClick={Remove}>Remove</button>
+              <button className="btn btn-danger" id="RemoveButton" onClick={()=>{Remove(item.id)}}>Remove</button>
             </td>
           </tr>
         ))}

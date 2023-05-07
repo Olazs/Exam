@@ -46,7 +46,7 @@ def CreateEvent(request): #new event
 
 @api_view(['POST'])
 def CreateRefuel(request):
-    serializer=EventSerializer+RefuelSerializer(data=request.data)
+    serializer=RefuelSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data)
