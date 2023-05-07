@@ -11,7 +11,7 @@ const Add = (e) => {
     body: JSON.stringify(formData),
     headers: {
       "Application": "application/json",
-      //"Content-Type": "application/json"
+      "Content-Type": "application/json; charset=UTF-8"
     }
   })
   .then(data => {
